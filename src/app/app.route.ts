@@ -4,6 +4,8 @@ import {CarreraTecnicaComponent} from './components/carrera-tecnica/carrera-tecn
 import {InscripcionComponent} from './components/inscripcion/inscripcion.component';
 import {LoginComponent} from './components/login/login.component';
 import {LogoutComponent} from './components/logout/logout.component';
+import { FormCarreratecnicaComponent } from './components/carrera-tecnica/form-carreratecnica.component';
+import { JornadaComponent } from './components/jornada/jornada.component';
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -12,6 +14,10 @@ const APP_ROUTES: Routes = [
     {path: 'inscripcion', component: InscripcionComponent},
     {path: 'login', component: LoginComponent},
     {path: 'logout', component: LogoutComponent},
+    {path: 'carreraTecnica/form', component: FormCarreratecnicaComponent},
+    {path: 'carreraTecnica/form/:id', component: FormCarreratecnicaComponent},
+    {path: 'jornada', component: JornadaComponent},
+    {path: 'jornada/page/:page', component: JornadaComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'home'},
 
 ]

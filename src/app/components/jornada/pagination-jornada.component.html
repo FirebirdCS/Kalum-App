@@ -1,0 +1,20 @@
+<ul class="pagination"  *ngIf="pages.length > 0">
+    <li class="page-item" *ngIf="pagination.number > 0">
+      <a class="page-link" [routerLink]="['/jornada/page/', pagination.number-1]">
+        &laquo;
+      </a>
+    </li>
+    <li [ngClass]="pagination.first? 'disabled page-item': 'page-item'">
+          <a class="page-link" [routerLink]="['/jornada/page/', 0]">First</a>
+    </li>
+    <li *ngFor="let page of pages" [ngClass]="page-1 == pagination.number? 'page-item active': 'page-item'">
+      <span class="page-link" *ngIf="page-1 == pagination.number">{{page}}</span>
+      <a class="page-link" *ngIf="page-1 != pagination.number" [routerLink]="['/jornada/page', page-1]">{{page}}</a>
+    </li>
+    <li [ngClass]="pagination.last? 'disabled page-item': 'page-item'"> 
+      <a class="page-link" [routerLink]="['/jornada/page', pagination.totalPages-1]">Last</a>
+    </li>
+    <li class="page-item" *ngIf="pagination.number < pagination.totalPages-1">
+      <a class="page-link" [routerLink]="['/jornada/page', pagination.number+1]">&laquo;</a>
+    </li>
+</ul>

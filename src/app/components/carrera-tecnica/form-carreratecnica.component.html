@@ -1,1 +1,23 @@
-<p>form-carreratecnica works!</p>
+<div class="card bg-dark text-white mt-5">
+    <div class="card-header"> {{titulo}} </div>
+    <hr>
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="carrera-tecnica" class="col-sm-2">Carrera Técnica</label>
+                <div class="col-sm-6">
+                    <input type="text" [(ngModel)] = "carreraTecnica.nombre" class="form-control" placeholder="Nombre" name="carrera-tecnica">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary mt-5" (click)="guardar()" *ngIf="!carreraTecnica.carreraId else elseBlock">Crear</button>
+                    <ng-template #elseBlock>
+                        <button class="btn btn-primary mt-5" role="button" (click)="actualizar()">Actualizar</button>
+                    </ng-template>
+                    <button class="btn btn-primary mt-5" [routerLink]="['/carreraTecnica/']">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

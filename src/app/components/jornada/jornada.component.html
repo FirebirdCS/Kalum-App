@@ -1,33 +1,32 @@
 <div class="card border-primary mt-3">
     <div class="card-header">
-        Inscripciones
+        Jornada
     </div>
     <div class="card-body text-primary">
         <h5> Listado disponible </h5>
         <div class="my-2 text-left">
             <button class="btn btn-rounded btn-secondary" type="button">
-                Crear una inscripcion
+                Crear una jornada
             </button>
         </div>
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Ciclo</th>
-                    <th>Fecha de Inscripcion</th>
-                    <th>Carne</th>
+                    <th>Tipo de Jornada</th>
+                    <th>Descripcion Jornada</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
             </thead>
-            <tbody *ngFor="let item of inscripciones">
+            <tbody *ngFor="let item of jornadas">
                 <tr>
-                    <td>{{item.ciclo}}</td>
-                    <td>{{item.fechaInscripcion}}</td>
-                    <td>{{item.carne}}</td>
+                    <td>{{item.jornadaTipo}}</td>
+                    <td>{{item.descripcionJornada}}</td>
                     <td><button type="button" name="Editar" class="btn btn-success btn-sm">Editar</button></td>
                     <td><button type="button" name="Eliminar" class="btn btn-danger btn-sm">Eliminar</button></td>
                 </tr>
             </tbody>
         </table>
+        <app-pagination-jornada *ngIf="pagination" [pagination] = "pagination"></app-pagination-jornada>
     </div>
 </div>
