@@ -1,0 +1,27 @@
+<div class="card bg-dark text-white mt-5">
+    <div class="card-header"> {{titulo}} </div>
+    <hr>
+    <div class="card-body">
+        <form>
+            <div class="form-group row">
+                <label for="jornada" class="col-sm-2">Tipo de Jornada</label>
+                <div class="col-sm-3">
+                    <input type="text" [(ngModel)] = "jornada.jornadaTipo" class="form-control" placeholder="Tipo de Jornada" name="jornada">
+                </div>
+                <label for="jornada" class="col-sm-2">Descripcion de Jornada</label>
+                <div class="col-sm-3">
+                    <input type="text" [(ngModel)] = "jornada.descripcionJornada" class="form-control" placeholder="Descripcion de Jornada" name="jornadaDesc">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary mt-5 mx-3" (click)="guardar()" *ngIf="!jornada.jornadaId else elseBlock">Crear</button>
+                    <ng-template #elseBlock>
+                        <button class="btn btn-primary mt-5 mx-3" role="button" (click)="actualizar()">Actualizar</button>
+                    </ng-template>
+                    <button class="btn btn-primary mt-5" [routerLink]="['/jornada/']">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

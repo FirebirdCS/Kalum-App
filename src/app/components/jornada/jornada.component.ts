@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Jornada } from './jornada.model';
 import { JornadaService } from './jornada.service';
 
@@ -34,4 +35,22 @@ export class JornadaComponent implements OnInit {
     })
   }
 
+  eliminar(jornada: Jornada) : void {
+    const mensaje = `Esta seguro de eliminar la jornada ${jornada.descripcionJornada}?`
+    Swal.fire({icon: 'warning', 
+    title: 'Jornada', 
+    text: mensaje, 
+    showCloseButton: true, 
+    showCancelButton: true, 
+    confirmButtonText: 'Si', 
+    cancelButtonText: 'No', 
+    reverseButtons: true}).then(resultado => {
+      if(resultado.isConfirmed){
+        this.jornadaService.deleteJornada(jornada.jornadaId).subscribe(() => {
+          this.jornadas = this.jornadas.filter(elemento => elemento !== jornada);
+          Swal.fire({icon: 'success', title: 'Jornada', text: `Registro ${jornada.descripcionJornada} eliminado`})
+        });
+      }
+    });
+  }
 }

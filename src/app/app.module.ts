@@ -15,6 +15,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { FormCarreratecnicaComponent } from './components/carrera-tecnica/form-carreratecnica.component';
 import { JornadaComponent } from './components/jornada/jornada.component';
 import { PaginationJornadaComponent } from './components/jornada/pagination-jornada.component';
+import { FormJornadaComponent } from './components/jornada/form-jornada.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PaginationJornadaComponent } from './components/jornada/pagination-jorn
     PaginationComponent,
     FormCarreratecnicaComponent,
     JornadaComponent,
-    PaginationJornadaComponent
+    PaginationJornadaComponent,
+    FormJornadaComponent
   ],
   imports: [
     BrowserModule,
