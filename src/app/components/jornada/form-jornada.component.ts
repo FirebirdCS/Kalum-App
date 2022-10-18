@@ -41,7 +41,9 @@ export class FormJornadaComponent implements OnInit {
       Swal.fire({icon: 'error', title: 'Jornadas', text: e});
     });
   }
-
+  /**
+   * Metodo para actualizar
+   */
   actualizar() : void{
     this.jornadaService.putJornada(this.jornada).subscribe(response => {
       const mensaje = `La carrera ${this.jornada.jornadaTipo} se ha actualizado`;

@@ -15,6 +15,6 @@
       <a class="page-link" [routerLink]="['/jornada/page', pagination.totalPages-1]">Last</a>
     </li>
     <li class="page-item" *ngIf="pagination.number < pagination.totalPages-1">
-      <a class="page-link" [routerLink]="['/jornada/page', pagination.number+1]">&laquo;</a>
+      <a class="page-link" [routerLink]="['/jornada/page', pagination.number+1]">&raquo;</a>
     </li>
 </ul>
