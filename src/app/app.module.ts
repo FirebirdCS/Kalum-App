@@ -17,6 +17,8 @@ import { JornadaComponent } from './components/jornada/jornada.component';
 import { FormJornadaComponent } from './components/jornada/form-jornada.component';
 import { FormInscripcionComponent } from './components/inscripcion/form-inscripcion.component';
 import { FormUserRegisterComponent } from './components/login/form-user-register.component';
+import { ExamenAdmisionComponent } from './components/examen-admision/examen-admision.component';
+import { FormExamenAdmisionComponent } from './components/examen-admision/form-examen-admision.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { FormUserRegisterComponent } from './components/login/form-user-register
     FormJornadaComponent,
     FormInscripcionComponent,
     FormUserRegisterComponent,
+    ExamenAdmisionComponent,
+    FormExamenAdmisionComponent,
   ],
   imports: [
     BrowserModule,
