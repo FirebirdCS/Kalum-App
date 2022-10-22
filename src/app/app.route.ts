@@ -7,12 +7,14 @@ import {LogoutComponent} from './components/logout/logout.component';
 import { FormCarreratecnicaComponent } from './components/carrera-tecnica/form-carreratecnica.component';
 import { JornadaComponent } from './components/jornada/jornada.component';
 import { FormJornadaComponent } from './components/jornada/form-jornada.component';
+import { FormUserRegisterComponent } from './components/login/form-user-register.component';
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'carreraTecnica', component: CarreraTecnicaComponent},
     {path: 'carreraTecnica/page/:page', component: CarreraTecnicaComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'user/form', component: FormUserRegisterComponent},
     {path: 'logout', component: LogoutComponent},
     {path: 'carreraTecnica/form', component: FormCarreratecnicaComponent},
     {path: 'carreraTecnica/form/:id', component: FormCarreratecnicaComponent},

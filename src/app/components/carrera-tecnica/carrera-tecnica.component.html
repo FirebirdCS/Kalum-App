@@ -13,6 +13,7 @@
             <thead>
                 <tr>
                     <th>Carrera Técnica</th>
+                    <th>Asignar</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
@@ -20,6 +21,7 @@
             <tbody *ngFor="let item of carrerasTecnicas">
                 <tr>
                     <td>{{item.nombre}}</td>
+                    <td><button type="button" name="asginar" class="btn btn-secondary btn-sm" (click)="asignar(item)">Asignar</button></td>
                     <td><button type="button" name="Editar" class="btn btn-success btn-sm" [routerLink] = "['/carreraTecnica/form/', item.carreraId]">Editar</button></td>
                     <td><button type="button" name="Eliminar" class="btn btn-danger btn-sm" (click)="eliminar(item)">Eliminar</button></td>
                 </tr>

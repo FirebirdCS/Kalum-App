@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarreraTecnica } from './carrera-tecnica.model';
 import { CarreraTecnicaService } from './carrera-tecnica.service';
 import Swal from 'sweetalert2';
@@ -16,7 +16,7 @@ export class CarreraTecnicaComponent implements OnInit {
   carrerasTecnicas: any[] = [];
   pagination: any;
 
-  constructor(private carreraTecnicaService: CarreraTecnicaService, private activatedRoute: ActivatedRoute) { }
+  constructor(private carreraTecnicaService: CarreraTecnicaService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params =>{
@@ -51,6 +51,36 @@ export class CarreraTecnicaComponent implements OnInit {
           this.carrerasTecnicas = this.carrerasTecnicas.filter(elemento => elemento !== carreraTecnica);
           Swal.fire({icon: 'success', title: 'Carreras técnicas', text: `Registro ${carreraTecnica.nombre} eliminado`})
         });
+      }
+    });
+  }
+
+  asignar(carreraTecnica:CarreraTecnica):void{
+    Swal.fire({
+      title: 'Asignar carrera técnica',
+      text: `¿Esta seguro de asignarse la carrera técnica ${carreraTecnica.nombre}?`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No',
+      reverseButtons: true
+    }).then(resultado => {
+      if(resultado.isConfirmed){
+        Swal.fire({
+            title: 'Registro de usuario',
+            text: '¿Tienes un usuario con nosotros?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Si',
+            cancelButtonText: 'No',
+            reverseButtons: true
+        }).then(resultado => {
+          if(resultado.isConfirmed){
+            this.router.navigate(['/login']);
+          } else{
+            this.router.navigate(['/user/form'])
+          }
+        })
       }
     });
   }
