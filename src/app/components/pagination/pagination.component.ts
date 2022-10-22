@@ -8,8 +8,8 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 })
 export class PaginationComponent implements OnInit, OnChanges {
 
+  @Input() urlEndPoint: string;
   @Input() pagination: any;
-
   pages: number[];
   from: number;
   to: number;

@@ -14,8 +14,8 @@ import { HomeService } from './components/home/home.service';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { FormCarreratecnicaComponent } from './components/carrera-tecnica/form-carreratecnica.component';
 import { JornadaComponent } from './components/jornada/jornada.component';
-import { PaginationJornadaComponent } from './components/jornada/pagination-jornada.component';
 import { FormJornadaComponent } from './components/jornada/form-jornada.component';
+import { FormInscripcionComponent } from './components/inscripcion/form-inscripcion.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +29,8 @@ import { FormJornadaComponent } from './components/jornada/form-jornada.componen
     PaginationComponent,
     FormCarreratecnicaComponent,
     JornadaComponent,
-    PaginationJornadaComponent,
-    FormJornadaComponent
+    FormJornadaComponent,
+    FormInscripcionComponent
   ],
   imports: [
     BrowserModule,

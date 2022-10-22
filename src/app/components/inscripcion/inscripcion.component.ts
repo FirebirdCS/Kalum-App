@@ -11,8 +11,10 @@ import { InscripcionService } from './inscripcion.service';
 })
 export class InscripcionComponent implements OnInit {
 
+  urlEndPoint: string = 'inscripcion';
   inscripcion: Inscripcion;
   inscripciones: any[] = [];
+  pagination: any;
   constructor(private inscripcionService: InscripcionService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,7 +28,9 @@ export class InscripcionComponent implements OnInit {
       }
       this.inscripcionService.getInscripciones(page).subscribe(response =>{
         this.inscripciones = response.content as Inscripcion[];
+        this.pagination = response;
         console.log(this.inscripciones);
+        console.log(this.pagination);
       });
     });
   }

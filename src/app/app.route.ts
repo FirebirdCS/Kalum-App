@@ -12,7 +12,6 @@ const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'carreraTecnica', component: CarreraTecnicaComponent},
     {path: 'carreraTecnica/page/:page', component: CarreraTecnicaComponent},
-    {path: 'inscripcion', component: InscripcionComponent},
     {path: 'login', component: LoginComponent},
     {path: 'logout', component: LogoutComponent},
     {path: 'carreraTecnica/form', component: FormCarreratecnicaComponent},
@@ -21,6 +20,8 @@ const APP_ROUTES: Routes = [
     {path: 'jornada/page/:page', component: JornadaComponent},
     {path: 'jornada/form', component: FormJornadaComponent},
     {path: 'jornada/form/:id', component: FormJornadaComponent},
+    {path: 'inscripcion', component: InscripcionComponent},
+    {path: 'inscripcion/page/:page', component: InscripcionComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'home'},
 
 ]

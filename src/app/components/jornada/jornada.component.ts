@@ -12,6 +12,7 @@ import { JornadaService } from './jornada.service';
 })
 export class JornadaComponent implements OnInit {
 
+  urlEndPoint: string = 'jornada';
   jornada: Jornada;
   jornadas: any[] = [];
   pagination: any;

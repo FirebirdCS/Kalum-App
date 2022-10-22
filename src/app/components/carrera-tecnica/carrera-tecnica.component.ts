@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class CarreraTecnicaComponent implements OnInit {
 
+  urlEndPoint: string = 'carreraTecnica';
   carrerasTecnicas: any[] = [];
   pagination: any;
 
