@@ -9,6 +9,7 @@ import { JornadaComponent } from './components/jornada/jornada.component';
 import { FormJornadaComponent } from './components/jornada/form-jornada.component';
 import { FormUserRegisterComponent } from './components/login/form-user-register.component';
 import { ExamenAdmisionComponent } from './components/examen-admision/examen-admision.component';
+import { FormExamenAdmisionComponent } from './components/examen-admision/form-examen-admision.component';
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -27,6 +28,8 @@ const APP_ROUTES: Routes = [
     {path: 'inscripcion/page/:page', component: InscripcionComponent},
     {path: 'examenAdmision', component: ExamenAdmisionComponent},
     {path: 'examenAdmision/page/:page', component: ExamenAdmisionComponent},
+    {path: 'examenAdmision/form', component: FormExamenAdmisionComponent},
+    {path: 'examenAdmision/form/:id', component: FormExamenAdmisionComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'home'},
 
 ]

@@ -1,1 +1,30 @@
-<p>form-examen-admision works!</p>
+<div class="card bg-dark text-white mt-5">
+    <div class="card-header"> 
+        {{titulo}} 
+    </div>
+    <hr>
+    <div class="card-body">
+        <div class="form-group row">
+            <label for="examen-admision" class="col-sm-2">Fecha del examen</label>
+            <div class="col-sm-6">
+                <mat-form-field appearance="fill">
+                    <mat-label>Escoge una fecha</mat-label>
+                    <input matInput [matDatepicker]="picker" name="fechaExamen" [(ngModel)]="examenAdmision.fechaExamen" >
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>   
+              <!-- <input type="datetime-local" [(ngModel)]="examenAdmision.fechaExamen" class="form-control" placeholder="Año/Mes/Dia" name="fechaExamen">--> 
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <button class="btn btn-primary mt-5 mx-3" (click)="guardar()" *ngIf="!examenAdmision.examenId else elseBlock">Crear</button>
+                <ng-template #elseBlock>
+                    <button class="btn btn-primary mt-5 mx-3" role="button" (click)="actualizar()">Actualizar</button>
+                </ng-template>
+                <button class="btn btn-primary mt-5" [routerLink]="['/examenAdmision/']">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

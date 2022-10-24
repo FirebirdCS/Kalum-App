@@ -19,6 +19,12 @@ import { FormInscripcionComponent } from './components/inscripcion/form-inscripc
 import { FormUserRegisterComponent } from './components/login/form-user-register.component';
 import { ExamenAdmisionComponent } from './components/examen-admision/examen-admision.component';
 import { FormExamenAdmisionComponent } from './components/examen-admision/form-examen-admision.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -42,7 +48,13 @@ import { FormExamenAdmisionComponent } from './components/examen-admision/form-e
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    APP_ROUTING
+    APP_ROUTING,
+    NoopAnimationsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [HomeService],
   bootstrap: [AppComponent]

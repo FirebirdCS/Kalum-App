@@ -5,7 +5,7 @@
     <div class="card-body text-primary">
         <h5> Listado disponible </h5>
         <div class="my-2 text-left">
-            <button class="btn btn-rounded btn-secondary" type="button">
+            <button class="btn btn-rounded btn-secondary" type="button" [routerLink]="['/examenAdmision/form']">
                 Crear un examen de admisión
             </button>
         </div>
@@ -20,8 +20,8 @@
             <tbody *ngFor="let item of examenesAdmision">
                 <tr>
                     <td>{{item.fechaExamen}}</td>
-                    <td><button type="button" name="Editar" class="btn btn-success btn-sm">Editar</button></td>
-                    <td><button type="button" name="Eliminar" class="btn btn-danger btn-sm">Eliminar</button></td>
+                    <td><button type="button" name="Editar" class="btn btn-success btn-sm"  [routerLink] = "['/examenAdmision/form/', item.examenId]">Editar</button></td>
+                    <td><button type="button" name="Eliminar" class="btn btn-danger btn-sm" (click)="eliminar(item)">Eliminar</button></td>
                 </tr>
             </tbody>
         </table>

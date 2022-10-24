@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-datepicker-toggle .mat-icon-button {
+    background-color: white;
+  }
+  .mat-form-field-label{
+    color:white;
+  }
+  .mat-hint{
+    color:white;
+  }
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: white !important;
+   }
+   

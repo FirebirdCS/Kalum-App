@@ -30,8 +30,6 @@ export class CarreraTecnicaComponent implements OnInit {
       this.carreraTecnicaService.getCarrerasTecnicas(page).subscribe(response =>{
         this.carrerasTecnicas = response.content as CarreraTecnica[];
         this.pagination = response;
-        console.log(this.carrerasTecnicas);
-        console.log(this.pagination);
       })
     });
   }
