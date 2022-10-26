@@ -7,13 +7,15 @@
         <div class="form-group row">
             <label for="examen-admision" class="col-sm-2">Fecha del examen</label>
             <div class="col-sm-6">
-                <mat-form-field appearance="fill">
+                <mat-form-field>
                     <mat-label>Escoge una fecha</mat-label>
-                    <input matInput [matDatepicker]="picker" name="fechaExamen" [(ngModel)]="examenAdmision.fechaExamen" >
+                    <input matInput [ngxMatDatetimePicker]="picker" [(ngModel)]="examenAdmision.fechaExamen" OnChange={console.log(1)}>
                     <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                  </mat-form-field>   
+                    <mat-datepicker-toggle matSuffix [for]="$any(picker)">
+                    </mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #picker [showSpinners]="true" >
+                    </ngx-mat-datetime-picker>
+                  </mat-form-field>
               <!-- <input type="datetime-local" [(ngModel)]="examenAdmision.fechaExamen" class="form-control" placeholder="Año/Mes/Dia" name="fechaExamen">--> 
             </div>
         </div>

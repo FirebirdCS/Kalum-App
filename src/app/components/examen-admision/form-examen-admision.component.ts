@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as moment from 'moment';
 import Swal from 'sweetalert2';
 import { ExamenAdmision } from './examen-admision.model';
 import { ExamenAdmisionService } from './examen-admision.service';
@@ -13,6 +14,8 @@ import { ExamenAdmisionService } from './examen-admision.service';
 export class FormExamenAdmisionComponent implements OnInit {
 
   examenAdmision: ExamenAdmision = new ExamenAdmision();
+
+  fechaExamen?: moment.Moment = moment(new Date());
 
   titulo:string;
 
@@ -57,6 +60,7 @@ export class FormExamenAdmisionComponent implements OnInit {
       console.log(e);
     });
   }
+
 
   
 

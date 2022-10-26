@@ -22,10 +22,25 @@ import { FormExamenAdmisionComponent } from './components/examen-admision/form-e
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule} from '@angular/material/datepicker';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
-import { NgxMatDatetimePickerModule, NgxMatTimepickerModule,  NgxMatNativeDateModule,  } from '@angular-material-components/datetime-picker';
+import { NgxMatDateAdapter, NgxMatDateFormats, NgxMatDatetimePickerModule, NGX_MAT_DATE_FORMATS } from '@angular-material-components/datetime-picker';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { NgxMatMomentAdapter } from '@angular-material-components/moment-adapter';
+import { MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+
+const MY_NGX_DATE_FORMATS: NgxMatDateFormats = {
+  parse: {
+    dateInput: "l, LTS"
+  },
+  display: {
+    dateInput: "l, LTS",
+    monthYearLabel: "MMM YYYY",
+    dateA11yLabel: "LL",
+    monthYearA11yLabel: "MMMM YYYY"
+  }
+};
 
 @NgModule({
   declarations: [
@@ -56,11 +71,23 @@ import { NgxMatDatetimePickerModule, NgxMatTimepickerModule,  NgxMatNativeDateMo
     MatFormFieldModule,
     MatNativeDateModule,
     MatInputModule,
-    NgxMatDatetimePickerModule,
-    NgxMatTimepickerModule,
-    NgxMatNativeDateModule
+    NgxMatDatetimePickerModule
   ],
-  providers: [HomeService],
-  bootstrap: [AppComponent]
+  
+  providers: [
+    {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: false } },
+    {provide: MAT_DATE_LOCALE, useValue: 'es-MX'},
+    {
+        provide: NgxMatDateAdapter,
+        useClass: NgxMatMomentAdapter,
+        deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+    { provide: NGX_MAT_DATE_FORMATS, useValue: MY_NGX_DATE_FORMATS },
+  ],
+  
+
+
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
