@@ -15,8 +15,6 @@ export class FormExamenAdmisionComponent implements OnInit {
 
   examenAdmision: ExamenAdmision = new ExamenAdmision();
 
-  fechaExamen?: moment.Moment = moment(new Date());
-
   titulo:string;
 
   constructor(private examenAdmisionService: ExamenAdmisionService, private router: Router, private activatedRoute: ActivatedRoute) { }

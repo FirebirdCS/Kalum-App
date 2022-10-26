@@ -10,6 +10,7 @@ import { FormJornadaComponent } from './components/jornada/form-jornada.componen
 import { FormUserRegisterComponent } from './components/login/form-user-register.component';
 import { ExamenAdmisionComponent } from './components/examen-admision/examen-admision.component';
 import { FormExamenAdmisionComponent } from './components/examen-admision/form-examen-admision.component';
+import { CalendarComponent } from './shared/calendar/calendar.component';
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -30,6 +31,7 @@ const APP_ROUTES: Routes = [
     {path: 'examenAdmision/page/:page', component: ExamenAdmisionComponent},
     {path: 'examenAdmision/form', component: FormExamenAdmisionComponent},
     {path: 'examenAdmision/form/:id', component: FormExamenAdmisionComponent},
+    {path: 'calendarComponent', component: CalendarComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'home'},
 
 ]
