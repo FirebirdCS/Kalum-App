@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {CalendarModule} from 'primeng/calendar';
+import { Component, Input, OnInit } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-calendar',
@@ -9,7 +10,7 @@ import {CalendarModule} from 'primeng/calendar';
 })
 export class CalendarComponent implements OnInit {
 
-  date7: Date;
+  @Input() date7: Date;
   dates: Date[];
 
   constructor() { }

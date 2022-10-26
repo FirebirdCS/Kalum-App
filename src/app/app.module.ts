@@ -20,7 +20,11 @@ import { FormUserRegisterComponent } from './components/login/form-user-register
 import { ExamenAdmisionComponent } from './components/examen-admision/examen-admision.component';
 import { FormExamenAdmisionComponent } from './components/examen-admision/form-examen-admision.component';
 import { CalendarComponent } from './shared/calendar/calendar.component';
-
+import {CalendarModule} from 'primeng/calendar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {AccordionModule} from 'primeng/accordion';
+import { ResultadosEAComponent } from './components/resultadosEA/resultados-ea.component';
+import { FormResultadosEAComponent } from './components/resultadosEA/form-resultados-ea.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,12 +43,17 @@ import { CalendarComponent } from './shared/calendar/calendar.component';
     ExamenAdmisionComponent,
     FormExamenAdmisionComponent,
     CalendarComponent,
+    ResultadosEAComponent,
+    FormResultadosEAComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    APP_ROUTING,
+    CalendarModule,
+    BrowserAnimationsModule,
+    AccordionModule,
+    APP_ROUTING
   ],
   
   providers: [HomeComponent],
