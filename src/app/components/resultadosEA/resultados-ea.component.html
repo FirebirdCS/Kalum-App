@@ -1,1 +1,36 @@
-<p>resultados-ea works!</p>
+<div class="card border-primary mt-3">
+    <div class="card-header">
+        Resultados de Examenes de Admisión
+    </div>
+    <div class="card-body text-primary">
+        <h5> Listado disponible </h5>
+        <div class="my-2 text-left">
+            <button class="btn btn-rounded btn-secondary" type="button" [routerLink]="['/resultadosEA/form']">
+                Crear un resultado
+            </button>
+        </div>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>NoExpediente</th>
+                    <th>Año</th>
+                    <th>Descripcion</th>
+                    <th>Nota</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of resultados">
+                <tr>
+                    <td>{{item.noExpediente}}</td>
+                    <td>{{item.anio}}</td>
+                    <td>{{item.descripcionResultado}}</td>
+                    <td>{{item.nota}}</td>
+                    <td><button type="button" name="Editar" class="btn btn-success btn-sm"  [routerLink] = "['/resultadosEA/form/', item.noExpediente]">Editar</button></td>
+                    <td><button type="button" name="Eliminar" class="btn btn-danger btn-sm" (click)="eliminar(item)">Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <app-pagination *ngIf="pagination" [pagination] = "pagination" [urlEndPoint] = "urlEndPoint"></app-pagination>
+    </div>
+</div>

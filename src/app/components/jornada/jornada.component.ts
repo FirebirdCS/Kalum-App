@@ -30,8 +30,6 @@ export class JornadaComponent implements OnInit {
       this.jornadaService.getJornadas(page).subscribe(response =>{
         this.jornadas = response.content as Jornada[];
         this.pagination = response;
-        console.log(this.jornadas);
-        console.log(this.pagination);
       });
     })
   }

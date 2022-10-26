@@ -11,6 +11,8 @@ import { FormUserRegisterComponent } from './components/login/form-user-register
 import { ExamenAdmisionComponent } from './components/examen-admision/examen-admision.component';
 import { FormExamenAdmisionComponent } from './components/examen-admision/form-examen-admision.component';
 import { CalendarComponent } from './shared/calendar/calendar.component';
+import { ResultadosEAComponent } from './components/resultadosEA/resultados-ea.component';
+import {FormResultadosEAComponent } from './components/resultadosEA/form-resultados-ea.component';
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -32,6 +34,10 @@ const APP_ROUTES: Routes = [
     {path: 'examenAdmision/form', component: FormExamenAdmisionComponent},
     {path: 'examenAdmision/form/:id', component: FormExamenAdmisionComponent},
     {path: 'calendarComponent', component: CalendarComponent},
+    {path: 'resultadosEA', component: ResultadosEAComponent},
+    {path: 'resultadosEA/page/:page', component: ResultadosEAComponent},
+    {path: 'resultadosEA/form', component: FormResultadosEAComponent},
+    {path: 'resultadosEA/form/:id', component: FormResultadosEAComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'home'},
 
 ]
