@@ -5,7 +5,7 @@
     <div class="card-body text-primary">
         <h5> Listado disponible </h5>
         <div class="my-2 text-left">
-            <button class="btn btn-rounded btn-secondary" type="button" [routerLink]="['/carreraTecnica/form']">
+            <button *ngIf="authService.hasRoles('ROLE_ADMIN')" class="btn btn-rounded btn-secondary" type="button" [routerLink]="['/carreraTecnica/form']">
                 Crear una carrera técnica
             </button>
         </div>
@@ -13,17 +13,17 @@
             <thead>
                 <tr>
                     <th>Carrera Técnica</th>
-                    <th>Asignar</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th *ngIf="authService.hasRoles('ROLE_USER')">Asignar</th>
+                    <th *ngIf="authService.hasRoles('ROLE_ADMIN')">Editar</th>
+                    <th *ngIf="authService.hasRoles('ROLE_ADMIN')">Eliminar</th>
                 </tr>
             </thead>
             <tbody *ngFor="let item of carrerasTecnicas">
                 <tr>
                     <td>{{item.nombre}}</td>
-                    <td><button type="button" name="asginar" class="btn btn-secondary btn-sm" (click)="asignar(item)">Asignar</button></td>
-                    <td><button type="button" name="Editar" class="btn btn-success btn-sm" [routerLink] = "['/carreraTecnica/form/', item.carreraId]">Editar</button></td>
-                    <td><button type="button" name="Eliminar" class="btn btn-danger btn-sm" (click)="eliminar(item)">Eliminar</button></td>
+                    <td *ngIf="authService.hasRoles('ROLE_USER')"><button type="button" name="asginar" class="btn btn-secondary btn-sm" (click)="asignar(item)">Asignar</button></td>
+                    <td *ngIf="authService.hasRoles('ROLE_ADMIN')"><button type="button" name="Editar" class="btn btn-success btn-sm" [routerLink] = "['/carreraTecnica/form/', item.carreraId]">Editar</button></td>
+                    <td *ngIf="authService.hasRoles('ROLE_ADMIN')"><button type="button" name="Eliminar" class="btn btn-danger btn-sm" (click)="eliminar(item)">Eliminar</button></td>
                 </tr>
             </tbody>
         </table>

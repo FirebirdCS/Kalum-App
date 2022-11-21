@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -25,6 +25,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AccordionModule} from 'primeng/accordion';
 import { ResultadosEAComponent } from './components/resultadosEA/resultados-ea.component';
 import { FormResultadosEAComponent } from './components/resultadosEA/form-resultados-ea.component'; 
+import {TokenInterceptor} from './components/interceptors/token';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,7 @@ import { FormResultadosEAComponent } from './components/resultadosEA/form-result
     APP_ROUTING
   ],
   
-  providers: [HomeComponent],
+  providers: [HomeComponent,{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent],
   
 })

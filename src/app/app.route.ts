@@ -13,6 +13,7 @@ import { FormExamenAdmisionComponent } from './components/examen-admision/form-e
 import { CalendarComponent } from './shared/calendar/calendar.component';
 import { ResultadosEAComponent } from './components/resultadosEA/resultados-ea.component';
 import {FormResultadosEAComponent } from './components/resultadosEA/form-resultados-ea.component';
+import { AuthGuard } from './components/login/guards/auth.guard';
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -21,23 +22,23 @@ const APP_ROUTES: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'user/form', component: FormUserRegisterComponent},
     {path: 'logout', component: LogoutComponent},
-    {path: 'carreraTecnica/form', component: FormCarreratecnicaComponent},
-    {path: 'carreraTecnica/form/:id', component: FormCarreratecnicaComponent},
+    {path: 'carreraTecnica/form', component: FormCarreratecnicaComponent, canActivate: [AuthGuard]},
+    {path: 'carreraTecnica/form/:id', component: FormCarreratecnicaComponent, canActivate: [AuthGuard]},
     {path: 'jornada', component: JornadaComponent},
     {path: 'jornada/page/:page', component: JornadaComponent},
-    {path: 'jornada/form', component: FormJornadaComponent},
-    {path: 'jornada/form/:id', component: FormJornadaComponent},
-    {path: 'inscripcion', component: InscripcionComponent},
+    {path: 'jornada/form', component: FormJornadaComponent , canActivate: [AuthGuard]},
+    {path: 'jornada/form/:id', component: FormJornadaComponent , canActivate: [AuthGuard]},
+    {path: 'inscripcion', component: InscripcionComponent , canActivate: [AuthGuard]},
     {path: 'inscripcion/page/:page', component: InscripcionComponent},
-    {path: 'examenAdmision', component: ExamenAdmisionComponent},
+    {path: 'examenAdmision', component: ExamenAdmisionComponent, canActivate: [AuthGuard]},
     {path: 'examenAdmision/page/:page', component: ExamenAdmisionComponent},
-    {path: 'examenAdmision/form', component: FormExamenAdmisionComponent},
-    {path: 'examenAdmision/form/:id', component: FormExamenAdmisionComponent},
+    {path: 'examenAdmision/form', component: FormExamenAdmisionComponent, canActivate: [AuthGuard]},
+    {path: 'examenAdmision/form/:id', component: FormExamenAdmisionComponent, canActivate: [AuthGuard]},
     {path: 'calendarComponent', component: CalendarComponent},
-    {path: 'resultadosEA', component: ResultadosEAComponent},
+    {path: 'resultadosEA', component: ResultadosEAComponent, canActivate: [AuthGuard]},
     {path: 'resultadosEA/page/:page', component: ResultadosEAComponent},
-    {path: 'resultadosEA/form', component: FormResultadosEAComponent},
-    {path: 'resultadosEA/form/:id', component: FormResultadosEAComponent},
+    {path: 'resultadosEA/form', component: FormResultadosEAComponent, canActivate: [AuthGuard]},
+    {path: 'resultadosEA/form/:id', component: FormResultadosEAComponent, canActivate: [AuthGuard]},
     {path: '**', pathMatch: 'full', redirectTo: 'home'},
 
 ]

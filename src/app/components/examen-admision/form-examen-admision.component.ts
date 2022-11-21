@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
+import { CalendarComponent } from 'src/app/shared/calendar/calendar.component';
 import Swal from 'sweetalert2';
 import { ExamenAdmision } from './examen-admision.model';
 import { ExamenAdmisionService } from './examen-admision.service';
@@ -17,7 +18,8 @@ export class FormExamenAdmisionComponent implements OnInit {
 
   titulo:string;
 
-  constructor(private examenAdmisionService: ExamenAdmisionService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private examenAdmisionService: ExamenAdmisionService, 
+      private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
