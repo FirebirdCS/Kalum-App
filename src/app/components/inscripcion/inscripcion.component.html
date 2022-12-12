@@ -5,7 +5,7 @@
     <div class="card-body text-primary">
         <h5> Listado disponible </h5>
         <div class="my-2 text-left">
-            <button class="btn btn-rounded btn-secondary" type="button">
+            <button *ngIf="authService.hasRoles('ROLE_ADMIN')" class="btn btn-rounded btn-secondary" type="button">
                 Crear una inscripcion
             </button>
         </div>
@@ -15,8 +15,8 @@
                     <th>Ciclo</th>
                     <th>Fecha de Inscripcion</th>
                     <th>Carne</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th *ngIf="authService.hasRoles('ROLE_ADMIN')">Editar</th>
+                    <th *ngIf="authService.hasRoles('ROLE_ADMIN')">Eliminar</th>
                 </tr>
             </thead>
             <tbody *ngFor="let item of inscripciones">
@@ -24,8 +24,8 @@
                     <td>{{item.ciclo}}</td>
                     <td>{{item.fechaInscripcion}}</td>
                     <td>{{item.carne}}</td>
-                    <td><button type="button" name="Editar" class="btn btn-success btn-sm">Editar</button></td>
-                    <td><button type="button" name="Eliminar" class="btn btn-danger btn-sm">Eliminar</button></td>
+                    <td *ngIf="authService.hasRoles('ROLE_ADMIN')"><button type="button" name="Editar" class="btn btn-success btn-sm">Editar</button></td>
+                    <td *ngIf="authService.hasRoles('ROLE_ADMIN')"><button type="button" name="Eliminar" class="btn btn-danger btn-sm">Eliminar</button></td>
                 </tr>
             </tbody>
         </table>

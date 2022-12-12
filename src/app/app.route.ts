@@ -14,6 +14,9 @@ import { CalendarComponent } from './shared/calendar/calendar.component';
 import { ResultadosEAComponent } from './components/resultadosEA/resultados-ea.component';
 import {FormResultadosEAComponent } from './components/resultadosEA/form-resultados-ea.component';
 import { AuthGuard } from './components/login/guards/auth.guard';
+import {RoleGuard} from './components/login/guards/role.guard';
+import {AspiranteComponent} from './components/aspirante/aspirante.component';
+import { FormAspiranteComponent } from './components/aspirante/form-aspirante.component';
 
 const APP_ROUTES: Routes = [
     {path: 'home', component: HomeComponent},
@@ -22,23 +25,27 @@ const APP_ROUTES: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'user/form', component: FormUserRegisterComponent},
     {path: 'logout', component: LogoutComponent},
-    {path: 'carreraTecnica/form', component: FormCarreratecnicaComponent, canActivate: [AuthGuard]},
-    {path: 'carreraTecnica/form/:id', component: FormCarreratecnicaComponent, canActivate: [AuthGuard]},
+    {path: 'carreraTecnica/form', component: FormCarreratecnicaComponent, canActivate: [AuthGuard, RoleGuard], data:{role: 'ROLE_ADMIN'}},
+    {path: 'carreraTecnica/form/:id', component: FormCarreratecnicaComponent, canActivate: [AuthGuard, RoleGuard], data:{role: 'ROLE_ADMIN'}},
     {path: 'jornada', component: JornadaComponent},
     {path: 'jornada/page/:page', component: JornadaComponent},
-    {path: 'jornada/form', component: FormJornadaComponent , canActivate: [AuthGuard]},
-    {path: 'jornada/form/:id', component: FormJornadaComponent , canActivate: [AuthGuard]},
+    {path: 'jornada/form', component: FormJornadaComponent , canActivate: [AuthGuard, RoleGuard], data:{role: 'ROLE_ADMIN'}},
+    {path: 'jornada/form/:id', component: FormJornadaComponent , canActivate: [AuthGuard, RoleGuard], data:{role: 'ROLE_ADMIN'}},
     {path: 'inscripcion', component: InscripcionComponent , canActivate: [AuthGuard]},
     {path: 'inscripcion/page/:page', component: InscripcionComponent},
     {path: 'examenAdmision', component: ExamenAdmisionComponent, canActivate: [AuthGuard]},
     {path: 'examenAdmision/page/:page', component: ExamenAdmisionComponent},
-    {path: 'examenAdmision/form', component: FormExamenAdmisionComponent, canActivate: [AuthGuard]},
-    {path: 'examenAdmision/form/:id', component: FormExamenAdmisionComponent, canActivate: [AuthGuard]},
+    {path: 'examenAdmision/form', component: FormExamenAdmisionComponent, canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_ADMIN'}},
+    {path: 'examenAdmision/form/:id', component: FormExamenAdmisionComponent, canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_ADMIN'}},
     {path: 'calendarComponent', component: CalendarComponent},
     {path: 'resultadosEA', component: ResultadosEAComponent, canActivate: [AuthGuard]},
     {path: 'resultadosEA/page/:page', component: ResultadosEAComponent},
-    {path: 'resultadosEA/form', component: FormResultadosEAComponent, canActivate: [AuthGuard]},
-    {path: 'resultadosEA/form/:id', component: FormResultadosEAComponent, canActivate: [AuthGuard]},
+    {path: 'resultadosEA/form', component: FormResultadosEAComponent, canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_ADMIN'}},
+    {path: 'resultadosEA/form/:id', component: FormResultadosEAComponent, canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_ADMIN'}},
+    {path: 'aspirante', component: AspiranteComponent, canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_USER'}},
+    {path: 'aspirante/page/:page', component: AspiranteComponent},
+    {path: 'aspirante/form', component: FormAspiranteComponent,  canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_ADMIN'}},
+    {path: 'aspirante/form/:id', component: FormAspiranteComponent,  canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_ADMIN'}},
     {path: '**', pathMatch: 'full', redirectTo: 'home'},
 
 ]

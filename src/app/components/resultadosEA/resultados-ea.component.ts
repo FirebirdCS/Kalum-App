@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../login/auth.service';
 import { ResultadosEA } from './resultados-ea.model';
 import { ResultadosEAService } from './resultados-ea.service';
 
@@ -17,7 +18,7 @@ export class ResultadosEAComponent implements OnInit {
   resultados: any[] = [];
   pagination: any;
 
-  constructor(private resultadosEAService: ResultadosEAService, private activatedRoute: ActivatedRoute) { }
+  constructor(private resultadosEAService: ResultadosEAService, private activatedRoute: ActivatedRoute, public authService: AuthService) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {

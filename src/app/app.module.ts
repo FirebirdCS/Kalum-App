@@ -10,7 +10,6 @@ import { InscripcionComponent } from './components/inscripcion/inscripcion.compo
 import { APP_ROUTING } from './app.route';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
-import { HomeService } from './components/home/home.service';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { FormCarreratecnicaComponent } from './components/carrera-tecnica/form-carreratecnica.component';
 import { JornadaComponent } from './components/jornada/jornada.component';
@@ -26,6 +25,11 @@ import {AccordionModule} from 'primeng/accordion';
 import { ResultadosEAComponent } from './components/resultadosEA/resultados-ea.component';
 import { FormResultadosEAComponent } from './components/resultadosEA/form-resultados-ea.component'; 
 import {TokenInterceptor} from './components/interceptors/token';
+import { AspiranteComponent } from './components/aspirante/aspirante.component';
+import { FormAspiranteComponent } from './components/aspirante/form-aspirante.component';
+import {PasswordModule} from 'primeng/password';
+import {GalleriaModule} from 'primeng/galleria';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +50,8 @@ import {TokenInterceptor} from './components/interceptors/token';
     CalendarComponent,
     ResultadosEAComponent,
     FormResultadosEAComponent,
+    AspiranteComponent,
+    FormAspiranteComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +60,8 @@ import {TokenInterceptor} from './components/interceptors/token';
     CalendarModule,
     BrowserAnimationsModule,
     AccordionModule,
+    PasswordModule,
+    GalleriaModule,
     APP_ROUTING
   ],
   

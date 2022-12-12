@@ -13,6 +13,7 @@ import { Usuario } from './usuario.model';
 export class LoginComponent implements OnInit {
 
   usuario: Usuario = new Usuario();
+  value3: string;
 
   constructor(private authService: AuthService, private router: Router) { }
 

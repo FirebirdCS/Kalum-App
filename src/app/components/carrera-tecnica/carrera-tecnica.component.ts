@@ -65,7 +65,8 @@ export class CarreraTecnicaComponent implements OnInit {
       reverseButtons: true
     }).then(resultado => {
       if(resultado.isConfirmed){
-        Swal.fire({
+        this.router.navigate(['/aspirante/form']);
+        /* Swal.fire({
             title: 'Registro de usuario',
             text: '¿Tienes un usuario con nosotros?',
             icon: 'question',
@@ -79,7 +80,7 @@ export class CarreraTecnicaComponent implements OnInit {
           } else{
             this.router.navigate(['/user/form'])
           }
-        })
+        }) */
       }
     });
   }

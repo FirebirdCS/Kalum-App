@@ -14,7 +14,7 @@ export class FormResultadosEAComponent implements OnInit {
 
   resultados: ResultadosEA = new ResultadosEA();
   titulo:string;
-  constructor(private resultadosEAService: ResultadosEAService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private resultadosEAService: ResultadosEAService, private router: Router, private activatedRoute: ActivatedRoute,) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {

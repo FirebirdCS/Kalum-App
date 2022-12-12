@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../login/auth.service';
 import { ExamenAdmision } from './examen-admision.model';
 import { ExamenAdmisionService } from './examen-admision.service';
 
@@ -16,7 +17,7 @@ export class ExamenAdmisionComponent implements OnInit {
   examenesAdmision: any[] = [];
   pagination: any;
 
-  constructor(private examenAdmisionService: ExamenAdmisionService, private activatedRoute: ActivatedRoute) { }
+  constructor(private examenAdmisionService: ExamenAdmisionService, private activatedRoute: ActivatedRoute, public authService: AuthService) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params =>{

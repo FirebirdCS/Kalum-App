@@ -21,7 +21,7 @@ export class ExamenAdmisionService {
     return this.httpClient.post<ExamenAdmision>(`${this.endPoint}ExamenesAdmision/`, examenAdmision);
   }
 
-  getExamenAdmision(examenId: any) : Observable<ExamenAdmision>{
+  getExamenAdmision(examenId: string) : Observable<ExamenAdmision>{
     return this.httpClient.get<ExamenAdmision>(`${this.endPoint}ExamenesAdmision/${examenId}`).pipe(
       catchError(e => {
         return throwError(() => {
