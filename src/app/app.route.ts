@@ -42,9 +42,9 @@ const APP_ROUTES: Routes = [
     {path: 'resultadosEA/page/:page', component: ResultadosEAComponent},
     {path: 'resultadosEA/form', component: FormResultadosEAComponent, canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_ADMIN'}},
     {path: 'resultadosEA/form/:id', component: FormResultadosEAComponent, canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_ADMIN'}},
-    {path: 'aspirante', component: AspiranteComponent, canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_USER'}},
+    {path: 'aspirante', component: AspiranteComponent},
     {path: 'aspirante/page/:page', component: AspiranteComponent},
-    {path: 'aspirante/form', component: FormAspiranteComponent,  canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_ADMIN'}},
+    {path: 'aspirante/form', component: FormAspiranteComponent,  canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_USER'}},
     {path: 'aspirante/form/:id', component: FormAspiranteComponent,  canActivate: [AuthGuard, RoleGuard], data: {role: 'ROLE_ADMIN'}},
     {path: '**', pathMatch: 'full', redirectTo: 'home'},
 

@@ -51,5 +51,9 @@ export class ExamenAdmisionService {
     );
    }
 
+   getListExamenesAdmision(): Observable<any>{
+    return this.httpClient.get<any[]>(`${this.endPoint}ExamenesAdmision/`);
+  }
+
 }
 

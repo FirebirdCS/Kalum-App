@@ -13,7 +13,6 @@
             <thead>
                 <tr>
                     <th>Ciclo</th>
-                    <th>Fecha de Inscripcion</th>
                     <th>Carne</th>
                     <th *ngIf="authService.hasRoles('ROLE_ADMIN')">Editar</th>
                     <th *ngIf="authService.hasRoles('ROLE_ADMIN')">Eliminar</th>
@@ -22,7 +21,6 @@
             <tbody *ngFor="let item of inscripciones">
                 <tr>
                     <td>{{item.ciclo}}</td>
-                    <td>{{item.fechaInscripcion}}</td>
                     <td>{{item.carne}}</td>
                     <td *ngIf="authService.hasRoles('ROLE_ADMIN')"><button type="button" name="Editar" class="btn btn-success btn-sm">Editar</button></td>
                     <td *ngIf="authService.hasRoles('ROLE_ADMIN')"><button type="button" name="Eliminar" class="btn btn-danger btn-sm">Eliminar</button></td>

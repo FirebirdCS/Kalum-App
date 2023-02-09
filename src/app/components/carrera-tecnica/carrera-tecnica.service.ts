@@ -33,7 +33,7 @@ export class CarreraTecnicaService {
     );
    }
 
-   getCarreraTecnica(carreraId : any) : Observable<CarreraTecnica> {
+   getCarreraTecnica(carreraId : string) : Observable<CarreraTecnica> {
     return this.httpClient.get<CarreraTecnica>(`${this.endPoint}CarrerasTecnicas/${carreraId}`).pipe(
       catchError(e => {
         return throwError(() => {
@@ -52,4 +52,8 @@ export class CarreraTecnicaService {
       })
     );
    }
+
+   getListCarrerasTecnicas() : Observable<any> {
+    return this.httpClient.get<any[]>(`${this.endPoint}CarrerasTecnicas/`);
+  }
 }

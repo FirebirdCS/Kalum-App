@@ -1,1 +1,38 @@
-<p>aspirante works!</p>
+<div class="card border-primary mt-3">
+    <div class="card-header">
+        Aspirantes
+    </div>
+    <div class="card-body text-primary">
+        <h5> Listado disponible </h5>
+        <div class="my-2 text-left">
+            <button *ngIf="authService.hasRoles('ROLE_ADMIN')" class="btn btn-rounded btn-secondary" type="button" [routerLink]="['/aspirante/form']">
+                Crear un aspirante
+            </button>
+        </div>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>No.Expediente</th>
+                    <th>Nombre Completo</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th *ngIf="authService.hasRoles('ROLE_ADMIN')">Editar</th>
+                    <th *ngIf="authService.hasRoles('ROLE_ADMIN')">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of aspirantes">
+                <tr>
+                    <td>{{item.noExpediente}}</td>
+                    <td>{{item.nombreCompleto}}</td>
+                    <td>{{item.direccion}}</td>
+                    <td>{{item.telefono}}</td>
+                    <td>{{item.email}}</td>
+                    <td *ngIf="authService.hasRoles('ROLE_ADMIN')"><button type="button" name="Editar" class="btn btn-success btn-sm" [routerLink] = "['/aspirante/form/', item.carreraId]">Editar</button></td>
+                    <td *ngIf="authService.hasRoles('ROLE_ADMIN')"><button type="button" name="Eliminar" class="btn btn-danger btn-sm">Eliminar</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <app-pagination *ngIf="pagination" [pagination] = "pagination" [urlEndPoint] = "urlEndPoint"></app-pagination>
+    </div>
+</div>

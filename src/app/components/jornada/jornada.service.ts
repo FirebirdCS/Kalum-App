@@ -63,4 +63,8 @@ export class JornadaService {
       })
     );
    }
+
+   getListJornadas(): Observable<any>{
+    return this.httpClient.get<any[]>(`${this.endPoint}Jornadas/`);
+  }
 }
